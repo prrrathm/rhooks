@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { useState } from 'react'
+import {Div, Button} from 'atomize'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const [Count, setCount] = useState(0)
+    return (
+        <Div bg="gray200" d="flex" align="center" p="1rem" textAlign="center">
+
+            <h1 text=''>COUNT = {Count}</h1>
+
+            <Button bg="warning700"
+                hoverBg="warning800"
+                rounded="circle"
+                p={{ r: "1.5rem", l: "1rem" }}
+                shadow="3"
+                hoverShadow="4"
+                onClick={()=> setCount(Count+1)}
+            >Increment</Button>
+
+            <Button onClick={()=> setCount(0)}>Reset</Button>
+            
+            <Button onClick={()=> setCount(Count-1)}>Decrement</Button>
+
+        </Div>
+    )
 }
-
-export default App;
